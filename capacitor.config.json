@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "mca_dept",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}

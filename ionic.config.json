@@ -1,0 +1,7 @@
+{
+  "name": "mca_dept",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
