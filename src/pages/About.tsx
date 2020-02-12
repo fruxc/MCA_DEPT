@@ -10,6 +10,13 @@ import {
   IonTitle,
   IonToolbar
 } from '@ionic/react';
+
+import { makeStyles } from '@material-ui/core/styles';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from 'react';
 import './Dashboard.css';
 
@@ -21,21 +28,23 @@ const About: React.FC = () => {
           <IonTitle>MCA DEPT</IonTitle>
         </IonToolbar>
       </IonHeader>
-      
       <img src="/assets/Entrance.jpg" alt="" />
       <IonContent>
-        <IonCard>
-          <IonCardHeader>
-            <IonCardSubtitle>About Us</IonCardSubtitle>
-            <IonCardTitle>Welcome to SPIT</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>
-            <p>
-              Now that your app has been created, you'll want to start building out features and
-              components. Check out some of the resources below for next steps.
-            </p>
-          </IonCardContent>
-        </IonCard>
+      <Typography variant="overline">Welcome to SPIT</Typography>
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography >About Us</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography variant="body2">
+          The institute is located in 47 acres of green campus at Andheri (W), the fastest growing suburb of Mumbai. The campus also houses four Bhavan’s Institutions of great repute namely Bhavan’s College (the arts, commerce and science college), Sardar Patel College of Engineering – Government aided Engineering college, S.P. Jain Institute of Management and Research, a management institute and A.H. Wadia, higher secondary school.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       </IonContent>
     </IonPage>
   );
