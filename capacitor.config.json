@@ -1,8 +1,8 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "mca_dept",
+  "appId": "com.fruxc.mcadept",
+  "appName": "MCA_DEPT",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "build",
+  "webDir": "www",
   "cordova": {}
 }
