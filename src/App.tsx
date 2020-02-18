@@ -42,7 +42,7 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Route path="/dashboard" component={Dashboard} exact={true} />
           <Route path="/profile" component={Profile} exact={true} />
-          <Route path="/profile/details" component={Details} />
+          <Route path="/profile/details" component={Details} exact={true}/>
           <Route path="/about" component={About} exact={true}/>
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>

@@ -4,21 +4,47 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonTabs,
-  IonLabel,
-  IonTabButton,
-  IonIcon,
-  IonTabBar,
-  IonRouterOutlet,
-} from '@ionic/react';
-import Profile from './Profile';
-import About from './About';
-import Details from './Details';
-import { Redirect, Route } from 'react-router-dom';
-import React from 'react';
-import './Dashboard.css';
+  IonGrid,
+  IonRow,
+  IonCol,
+} from "@ionic/react";
+import React from "react";
+import {
+  createMuiTheme,
+  makeStyles,
+  ThemeProvider
+} from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import { purple } from "@material-ui/core/colors";
+import "./Dashboard.css";
+
+const useStyles = makeStyles(theme => ({
+  margin: {
+    marginTop: 100,
+    marginBottom: 10,
+    marginLeft: 10,
+    marginRight: 10
+  },
+  margin2: {
+    marginTop: 10,
+    marginBottom: 100,
+    marginLeft: 20,
+    marginRight: 10
+  },
+  size: {
+    fontSize: 12
+  }
+}));
+
+const theme = createMuiTheme({
+  palette: {
+    primary: purple
+  }
+});
 
 const Dashboard: React.FC = () => {
+  const classes = useStyles();
+
   return (
     <IonPage>
       <IonHeader>
@@ -27,36 +53,54 @@ const Dashboard: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-    <IonTabs>
-        <IonRouterOutlet>
-          <Route path="/dashboard" component={Dashboard} exact={true} />
-          <Route path="/profile" component={Profile} exact={true} />
-          <Route path="/profile/details" component={Details} />
-          <Route path="/about" component={About} exact={true}/>
-          <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
-        </IonRouterOutlet>
-      <IonTabBar slot="bottom">
-        <IonTabButton tab="Dashboard">
-          <IonIcon name="calendar" />
-          <IonLabel>Schedule</IonLabel>
-        </IonTabButton>
-
-        <IonTabButton tab="Dashboard/Details">
-          <IonIcon name="contacts" />
-          <IonLabel>Speakers</IonLabel>
-        </IonTabButton>
-
-        <IonTabButton tab="Profile">
-          <IonIcon name="map" />
-          <IonLabel>Map</IonLabel>
-        </IonTabButton>
-
-        <IonTabButton tab="About">
-          <IonIcon name="information-circle" />
-          <IonLabel>About</IonLabel>
-        </IonTabButton>
-      </IonTabBar>
-    </IonTabs>
+        <IonGrid>
+        <IonRow className={classes.margin}>
+            <IonCol>
+              <ThemeProvider theme={theme}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.size}
+                >Annoncement
+                </Button>
+              </ThemeProvider>
+            </IonCol>
+            <IonCol>
+              <ThemeProvider theme={theme}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.size }
+                >
+                  Attendance
+                </Button>
+              </ThemeProvider>
+            </IonCol>
+          </IonRow>
+          <IonRow className={classes.margin2}>
+            <IonCol>
+              <ThemeProvider theme={theme}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.size}
+                >TimeTable
+                </Button>
+              </ThemeProvider>
+            </IonCol>
+            <IonCol>
+              <ThemeProvider theme={theme}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.size }
+                >
+                  Exam
+                </Button>
+              </ThemeProvider>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
