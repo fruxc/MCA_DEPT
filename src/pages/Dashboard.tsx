@@ -2,13 +2,13 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonGrid,
   IonRow,
   IonCol,
+  IonButton,
+  IonToast,
 } from "@ionic/react";
-import React from "react";
+import React, { useState } from "react";
 import {
   createMuiTheme,
   makeStyles,
@@ -44,13 +44,14 @@ const theme = createMuiTheme({
 
 const Dashboard: React.FC = () => {
   const classes = useStyles();
+  const [toastIsShown, setToastIsShown] = useState(false);
 
+  const showToast = () => {
+      setToastIsShown(true);
+  }
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>MCA DEPT</IonTitle>
-        </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonGrid>
@@ -101,6 +102,17 @@ const Dashboard: React.FC = () => {
             </IonCol>
           </IonRow>
         </IonGrid>
+        <div>
+                    <IonButton onClick={() => showToast()}>
+                        Show toast
+                    </IonButton>
+                    <IonToast
+                        isOpen={toastIsShown}
+                        onDidDismiss={() => setToastIsShown(false)}
+                        message="Let's show a toast!"
+                        duration={3000}
+                    />
+                </div>
       </IonContent>
     </IonPage>
   );

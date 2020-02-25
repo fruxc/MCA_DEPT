@@ -2,8 +2,6 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
   IonItem
 } from "@ionic/react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,9 +24,6 @@ const About: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>MCA DEPT</IonTitle>
-        </IonToolbar>
       </IonHeader>
       <img src="/assets/Entrance.jpg" alt="" />
       <IonContent>
