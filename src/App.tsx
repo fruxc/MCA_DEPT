@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -13,15 +13,18 @@ import {
   IonButtons,
   IonTitle,
   IonHeader,
-  IonSplitPane,
-  IonPage
+  IonMenu,
+  IonContent,
+  IonList,
+  IonItem,
+  IonSplitPane
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { person, help, grid } from "ionicons/icons";
+import { person, help, grid, create } from "ionicons/icons";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
-import Details from "./pages/Details";
+import Feedback from "./pages/Feedback";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -43,7 +46,6 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 const App: React.FC = () => (
-  <Router>
   <IonApp>
     <IonHeader>
       <IonToolbar>
@@ -54,43 +56,50 @@ const App: React.FC = () => (
       </IonToolbar>
     </IonHeader>
     <IonSplitPane contentId="main">
-      <div id="menu">
-      </div>
-      <IonPage id="main">
-        <Switch>
-          <Route path="/dashboard" component={Dashboard} exact={true} />
-          <Route path="/profile" component={Profile} exact={true} />
-          <Route path="/profile/details" component={Details} exact={true} />
-          <Route path="/about" component={About} exact={true} />
-        </Switch>
-      </IonPage>
+    <IonMenu side="start" menuId="first" contentId="main">
+      <IonContent>
+        <IonList>
+          <IonItem></IonItem>
+          <IonItem></IonItem>
+          <IonItem routerLink="/dashboard"> Dashboard </IonItem>
+          <IonItem routerLink="/profile"> Profile </IonItem>
+          <IonItem routerLink="/feedback"> Feedback </IonItem>
+          <IonItem routerLink="/about"> About us </IonItem>
+        </IonList>
+      </IonContent>
+    </IonMenu>
     </IonSplitPane>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route path="/dashboard" component={Dashboard} exact={true} />
-          <Route path="/profile" component={Profile} exact={true} />
-          <Route path="/profile/details" component={Details} exact={true} />
-          <Route path="/about" component={About} exact={true} />
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="dashboard" href="/dashboard">
-            <IonIcon icon={grid} />
-            <IonLabel>Dashboard</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="profile" href="/profile">
-            <IonIcon icon={person} />
-            <IonLabel>Profile</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="about" href="/about">
-            <IonIcon icon={help} />
-            <IonLabel>About us</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+    <IonContent id="main">
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route path="/dashboard" component={Dashboard} exact={true} />
+            <Route path="/profile" component={Profile} exact={true} />
+            <Route path="/feedback" component={Feedback} exact={true} />
+            <Route path="/about" component={About} exact={true} />
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="dashboard" href="/dashboard">
+              <IonIcon icon={grid} />
+              <IonLabel>Dashboard</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="profile" href="/profile">
+              <IonIcon icon={person} />
+              <IonLabel>Profile</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="feedback" href="/feedback">
+              <IonIcon icon={create} />
+              <IonLabel>Feedback</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="about" href="/about">
+              <IonIcon icon={help} />
+              <IonLabel>About us</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </IonContent>
   </IonApp>
-  </Router>
 );
 
 export default App;

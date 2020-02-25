@@ -6,7 +6,7 @@ import {
   IonRow,
   IonCol,
   IonButton,
-  IonToast,
+  IonToast
 } from "@ionic/react";
 import React, { useState } from "react";
 import {
@@ -47,22 +47,22 @@ const Dashboard: React.FC = () => {
   const [toastIsShown, setToastIsShown] = useState(false);
 
   const showToast = () => {
-      setToastIsShown(true);
-  }
+    setToastIsShown(true);
+  };
   return (
     <IonPage>
-      <IonHeader>
-      </IonHeader>
+      <IonHeader></IonHeader>
       <IonContent>
         <IonGrid>
-        <IonRow className={classes.margin}>
+          <IonRow className={classes.margin}>
             <IonCol>
               <ThemeProvider theme={theme}>
                 <Button
                   variant="contained"
                   color="primary"
                   className={classes.size}
-                >Annoncement
+                >
+                  Annoncement
                 </Button>
               </ThemeProvider>
             </IonCol>
@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  className={classes.size }
+                  className={classes.size}
                 >
                   Attendance
                 </Button>
@@ -85,7 +85,8 @@ const Dashboard: React.FC = () => {
                   variant="contained"
                   color="primary"
                   className={classes.size}
-                >TimeTable
+                >
+                  TimeTable
                 </Button>
               </ThemeProvider>
             </IonCol>
@@ -94,7 +95,7 @@ const Dashboard: React.FC = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  className={classes.size }
+                  className={classes.size}
                 >
                   Exam
                 </Button>
@@ -103,16 +104,14 @@ const Dashboard: React.FC = () => {
           </IonRow>
         </IonGrid>
         <div>
-                    <IonButton onClick={() => showToast()}>
-                        Show toast
-                    </IonButton>
-                    <IonToast
-                        isOpen={toastIsShown}
-                        onDidDismiss={() => setToastIsShown(false)}
-                        message="Let's show a toast!"
-                        duration={3000}
-                    />
-                </div>
+          <IonButton onClick={() => showToast()}>Show toast</IonButton>
+          <IonToast
+            isOpen={toastIsShown}
+            onDidDismiss={() => setToastIsShown(false)}
+            message="Let's show a toast!"
+            duration={3000}
+          />
+        </div>
       </IonContent>
     </IonPage>
   );

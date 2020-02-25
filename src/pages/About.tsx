@@ -70,7 +70,6 @@ const About: React.FC = () => {
                 2. Excellence <br></br>
                 3. Social Sensitivity <br></br>
                 4. Globalization<br></br>
-                <hr></hr>
               </Typography>
             </ExpansionPanelDetails>
           </ExpansionPanel>
