@@ -55,11 +55,9 @@ const App: React.FC = () => (
         <IonTitle>MCA Dept</IonTitle>
       </IonToolbar>
     </IonHeader>
-    <IonSplitPane contentId="main">
     <IonMenu side="start" menuId="first" contentId="main">
       <IonContent>
         <IonList>
-          <IonItem></IonItem>
           <IonItem></IonItem>
           <IonItem routerLink="/dashboard"> Dashboard </IonItem>
           <IonItem routerLink="/profile"> Profile </IonItem>
@@ -68,7 +66,6 @@ const App: React.FC = () => (
         </IonList>
       </IonContent>
     </IonMenu>
-    </IonSplitPane>
     <IonContent id="main">
       <IonReactRouter>
         <IonTabs>

@@ -43,12 +43,15 @@ const theme = createMuiTheme({
 });
 
 const Dashboard: React.FC = () => {
+  
   const classes = useStyles();
+
   const [toastIsShown, setToastIsShown] = useState(false);
 
   const showToast = () => {
     setToastIsShown(true);
   };
+
   return (
     <IonPage>
       <IonHeader></IonHeader>
