@@ -59,10 +59,14 @@ const App: React.FC = () => (
       <IonContent>
         <IonList>
           <IonItem></IonItem>
-          <IonItem routerLink="/dashboard"> Dashboard </IonItem>
-          <IonItem routerLink="/profile"> Profile </IonItem>
-          <IonItem routerLink="/feedback"> Feedback </IonItem>
-          <IonItem routerLink="/about"> About us </IonItem>
+          <IonItem routerLink="/dashboard">
+              <IonIcon icon={grid} /> Dashboard </IonItem>
+          <IonItem routerLink="/profile">
+              <IonIcon icon={person} /> Profile </IonItem>
+          <IonItem routerLink="/feedback">
+              <IonIcon icon={create} /> Feedback </IonItem>
+          <IonItem routerLink="/about">
+              <IonIcon icon={help} /> About us </IonItem>
         </IonList>
       </IonContent>
     </IonMenu>
